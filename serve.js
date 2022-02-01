@@ -14,7 +14,9 @@ const server = http.createServer(async (request, response) => {
 
   if (path) {
     options.public = path;
-    options.rewrites = [{ source: `/${path}/:id`, destination: `./:id` }];
+    options.rewrites = [
+      { source: `performance-tests/${path}/:id`, destination: `./:id` },
+    ];
   }
 
   return await handler(request, response, options);
